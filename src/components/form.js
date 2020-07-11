@@ -6,7 +6,8 @@ export default class Form extends React.Component {
     super(props)
     this.state = {
       country: "",
-      countries: []
+      countries: [],
+      gender: "female"
     }
   }
 
@@ -22,10 +23,11 @@ export default class Form extends React.Component {
   }
 
   handleChange = event => this.setState({country: event.target.value})
+  handleChangeGender = event => this.setState({gender: event.target.value})
 
   
   render() {
-    const { countries, country } = this.state;
+    const { countries, country, gender } = this.state;
     console.log("DATA -->", countries);
       return (
         <form noValidate autoComplete="off" style={{display: 'flex', flexDirection: 'column'}}>
@@ -49,7 +51,7 @@ export default class Form extends React.Component {
     
           <FormControl component="fieldset">
             <FormLabel component="legend">Gender</FormLabel>
-            <RadioGroup aria-label="gender" name="gender1" value="" >
+            <RadioGroup aria-label="gender" name="gender1" value={gender} onChange={this.handleChangeGender}>
               <FormControlLabel value="female" control={<Radio />} label="Female" />
               <FormControlLabel value="male" control={<Radio />} label="Male" />
               <FormControlLabel value="other" control={<Radio />} label="Other" />
