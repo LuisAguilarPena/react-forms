@@ -5,6 +5,7 @@ export default class Form extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      name: "",
       country: "",
       countries: [],
       gender: ""
@@ -24,14 +25,20 @@ export default class Form extends React.Component {
 
   handleChange = event => this.setState({country: event.target.value})
   handleChangeGender = event => this.setState({gender: event.target.value})
+  handleChangeName = event => this.setState({name: event.target.value})
 
+  nameValidation = name => {
+    if(name !== "") {
+      return !/^[a-zA-Z]+$/.test(name)
+    }
+  }
   
   render() {
-    const { countries, country, gender } = this.state;
-    console.log("DATA -->", countries);
+    const { countries, country, gender, name } = this.state;
+    console.log("DATA -->", name);
       return (
         <form noValidate autoComplete="off" style={{display: 'flex', flexDirection: 'column'}}>
-          <TextField label="Name" />
+          <TextField label="Name" error={this.nameValidation(name)} onChange={this.handleChangeName}/>
           <TextField label="Last Name" />
           <TextField label="E-mail" />
           
