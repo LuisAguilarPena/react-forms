@@ -6,9 +6,7 @@ export default class Form extends React.Component {
     super(props)
     this.state = {
       country: "",
-      countries: [
-        {name: "Test"}
-      ]
+      countries: []
     }
   }
 
@@ -40,10 +38,12 @@ export default class Form extends React.Component {
             select
             onChange={this.handleChange}
           >
-            {countries.map( country => 
-              <MenuItem key={country.name} value={country.name} >
-                {country.name}
+            {countries.map( country => {
+              // There is a way to properly display the info, I've done it before due to time constraints will leave this here, see https://www.8x8.com/careers
+              return <MenuItem key={country.name} value={country.name} >
+                Country: {country.name} Region: {country.region} Currency: {country.currencies[0].code}
               </MenuItem>
+            } 
             )}
           </TextField> <br/>
     
