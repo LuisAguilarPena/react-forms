@@ -2,7 +2,7 @@
   Kavak Tech Challenge July 11 2020
 </h1>
 
-This project was done as part of a tech challenge by Kavak for a developer position. Sadly I only made it halfway through the requirements for the forms challenge, algorithm test was completed.
+This project was done as part of a tech challenge by Kavak for a developer position. Sadly I only made it halfway through the requirements for the forms challenge, in 2 or so hours. The algorithm test was completed.
 
 Project is using GatsbyJS' default starter.
 
