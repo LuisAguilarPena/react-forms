@@ -2,13 +2,25 @@ import React from "react";
 import { TextField, Radio, MenuItem, FormControl, FormLabel, RadioGroup, FormControlLabel } from '@material-ui/core';
 
 export default function Form() {
+
+  fetch('https://restcountries.eu/rest/v2/all')
+    .then(response => response.json())
+    .then(data => {
+        console.log("-->", data);
+        
+    })
+    .catch(err => {
+        console.error('An error ocurred', err);
+    });
+
+
   return (
     <form noValidate autoComplete="off" style={{display: 'flex', flexDirection: 'column'}}>
-      <TextField id="outlined-basic" label="Name" />
-      <TextField id="outlined-basic" label="Last Name" />
-      <TextField id="outlined-basic" label="E-mail" />
+      <TextField label="Name" />
+      <TextField label="Last Name" />
+      <TextField label="E-mail" />
       
-      <TextField id="outlined-basic" label="Country" 
+      <TextField label="Country" 
         value=""
         select 
       >
@@ -25,7 +37,7 @@ export default function Form() {
       </FormControl>
 
 
-      <TextField id="outlined-basic" label="Teléfono" />
+      <TextField label="Teléfono" />
 
     </form>
   )
