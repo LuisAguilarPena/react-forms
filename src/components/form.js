@@ -7,7 +7,7 @@ export default class Form extends React.Component {
     this.state = {
       country: "",
       countries: [],
-      gender: "female"
+      gender: ""
     }
   }
 
