@@ -5,6 +5,7 @@ export default class Form extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      country: "",
       countries: [
         {name: "Test"}
       ]
@@ -22,10 +23,11 @@ export default class Form extends React.Component {
       });
   }
 
+  handleChange = event => this.setState({country: event.target.value})
 
   
   render() {
-    const { countries } = this.state;
+    const { countries, country } = this.state;
     console.log("DATA -->", countries);
       return (
         <form noValidate autoComplete="off" style={{display: 'flex', flexDirection: 'column'}}>
@@ -34,8 +36,9 @@ export default class Form extends React.Component {
           <TextField label="E-mail" />
           
           <TextField label="Country" 
-            value=""
-            select 
+            value={country}
+            select
+            onChange={this.handleChange}
           >
             {countries.map( country => 
               <MenuItem key={country.name} value={country.name} >
